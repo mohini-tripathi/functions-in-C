@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<body leftmargin="100">
+<h1 style="color:skyblue;"><font size="9"><center><b><u>C Programming language</center></font></u></b></h1>
+<br>
+<br>
+<br>
+<hr>
+<h2><center><u><font size="7">Functions in C/C++</font></u></center></h2>
+<p><font size="6">A function is a set of statements that take inputs, do some specific computation and produces output.<br>
+<br>
+<tab>The idea is to put some commonly or repeatedly done task together and make a function, so that instead<br> of writing the same code again and again for different inputs, we can call the function.
+</p>
+<p><b>Example:</b> <br>
+</br><b>
+<tab>
+Below is a simple C program to demonstrate functions in C. Run this C Program <br>
+in your compiler and see the results.</b></tab>
+<br>
+</font>
+</p>
+<p style="background-color:rgba(255, 90, 71, 0.1);">
+<font size="5">
+#include <stdio.h> <br>
+// An example function that takes two parameters 'x' and 'y'  <br>
+// as input and returns max of two input numbers  <br>
+int max(int x, int y)  <br>
+{  <br>
+    if (x > y)  <br>
+      return x;  <br>
+    else <br>
+      return y;  <br>
+} 
+  
+// main function that doesn't receive any parameter and  <br>
+// returns integer.  <br>
+int main(void)  <br>
+{  <br>
+    int a = 10, b = 20;  <br>
+  
+    // Calling above function to find max of 'a' and 'b'  <br>
+    int m = max(a, b);  <br>
+  
+    printf("m is %d", m);  <br>
+    return 0;  <br>
+} </font>
+</p>
+<p style="background-color:powderblue;"><b><font size="5">Output:</font><br>
+</br><font size="5">
+m is 20</font></b></p>
+<hr>
+<h1><b>Function Declaration</b></h1>
+<p style="color:green" title="Function Declaration"><font size="6">Function declaration tells compiler about number of parameters function takes, data-types of parameters and return type of function. Putting parameter names in function declaration is optional in function declaration, but it is necessary to put them in definition. Below are example of function declarations. (parameter names are not there in below declarations)</font></p>
+<p style="background-color:rgba(176,252,300);"><font size="5">// A function that takes two integers as parameters <br>
+// and returns an integer <br>
+int max(int, int); <br>
+  
+// A function that takes a char and an int as parameters <br>
+// and returns an integer <br>
+int fun(char, int);</font> <br></p>
+<p><font size="6">
+It is always recommended to declare a function before it is used 
+In C, we can do both declaration and definition at same place, like done in above example program.
+
+C also allows to declare and define functions separately, this is specially needed in case of library functions. The library functions are declared in header files and defined in library files. Below is an example declaration.</p></font>
+<br>
+<hr>
+<h1>Calling a function</h1>
+<font size="6"><p>While creating a C function, you give a definition of what the function has to do. To use a function, you will have to call that function to perform the defined task.
+
+When a program calls a function, the program control is transferred to the called function. A called function performs a defined task and when its return statement is executed or when its function-ending closing brace is reached, it returns the program control back to the main program.
+
+To call a function, you simply need to pass the required parameters along with the function name, and if the function returns a value, then you can store the returned value.
+</p></font>
+
+
+<table>
+  <tr>
+<th><font size="6"> Sr. No.</font></th>
+    <th><font size="6">Call Type</font></th></font>
+  </tr>
+  <tr>
+    <td><font size="6">1</font></td>
+    <td><b><font size="6">Call by Value</b><br>This method copies the actual value of an argument into the formal parameter of the function. In this case, changes made to the parameter inside the function have no effect on the argument.</font>
+  </tr>
+  <tr>
+    <td><font size="6">2</font></td>
+    <td><b><font size="6">Call by Reference</b><br>This method copies the address of an argument into the formal parameter. Inside the function, the address is used to access the actual argument used in the call. This means that changes made to the parameter affect the argument.</font></td>
+  </tr>  
+</table>
+<br>
+<br>
+<table style="background-color:rgba(255, 90, 71, 0.1);"><center>
+  <tr>
+<th><font size="6">Call by Reference</font></th>
+    <th><font size="6">Call by Value</font></th></font>
+  </tr>
+  <tr>
+    <td><font size="5">#include<stdio.h><br>
+void change(int *num) {    <br>
+    printf("Before adding value inside function num=%d \n",*num);    <br>
+    (*num) += 100;    <br>
+    printf("After adding value inside function num=%d \n", *num);  <br>  
+}      <br>
+int main() {   <br> 
+    int x=100; <br>   
+    printf("Before function call x=%d \n", x); <br>   
+    change(&x);//passing reference in function  <br>  
+    printf("After function call x=%d \n", x);   <br> 
+return 0;  <br>
+}    </font></td>
+    <td><font size="5">#include<stdio.h>  <br>
+void change(int num) {    <br>
+    printf("Before adding value inside function num=%d \n",num);    <br>
+    num=num+100;    <br>
+    printf("After adding value inside function num=%d \n", num);    <br>
+}    <br>
+int main() {   <br> 
+    int x=100;    <br>
+    printf("Before function call x=%d \n", x);  <br>  
+    change(x);//passing value in function  <br>  
+    printf("After function call x=%d \n", x);  <br>  
+return 0;  <br>
+}    </font>
+  </tr>
+  </center>
+</table>
+<center><img src="img.jpg"></center>
+<a href="https://www.youtube.com/watch?v=Wp2OLv7L6LY"><h2>C Programming Language Video Tutorial</h2></a>
+<h1>Important Points</h1>
+<ul><font size="6">
+  <li> Every C program has a function called main() that is called by operating system when a user runs the program.</li>
+  <li>Every function has a return type. If a function doesn’t return any value, then void is used as return type.</li>
+  <li>In C, functions can return any type except arrays and functions. We can get around this limitation by returning pointer to array or pointer to function.</li></font>
+</ul>
+<br>
+<br>
+<br>
+
+</body>
+</html>
+
